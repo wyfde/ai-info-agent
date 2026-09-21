@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
+    inputs:
+      coverage_date:
+        description: "要投递的日报日期，格式 YYYY-MM-DD；留空则投递前一晚报"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -36,4 +41,10 @@ jobs:
         run: python -m ai_job_intel --config config/config.cloud.json check-bitable
 
       - name: Deliver latest previous digest
-        run: python -m ai_job_intel --config config/config.cloud.json run-morning
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.coverage_date }}" ]; then
+            python -m ai_job_intel --config config/config.cloud.json send --date "${{ inputs.coverage_date }}"
+          else
+            python -m ai_job_intel --config config/config.cloud.json run-morning
+          fi
