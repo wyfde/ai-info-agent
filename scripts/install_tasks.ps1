@@ -1,9 +1,12 @@
 param(
-    [string]$Config = "D:\AI-INFO\config\config.json"
+    [string]$Config = ""
 )
 
 $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
+if ([string]::IsNullOrWhiteSpace($Config)) {
+    $Config = Join-Path $ProjectRoot "config\config.json"
+}
 $PowerShell = (Get-Command powershell.exe).Source
 
 $eveningAction = New-ScheduledTaskAction `

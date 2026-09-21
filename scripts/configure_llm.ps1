@@ -1,8 +1,12 @@
 param(
-    [string]$Config = "D:\AI-INFO\config\config.json"
+    [string]$Config = ""
 )
 
 $ErrorActionPreference = "Stop"
+$ProjectRoot = Split-Path -Parent $PSScriptRoot
+if ([string]::IsNullOrWhiteSpace($Config)) {
+    $Config = Join-Path $ProjectRoot "config\config.json"
+}
 
 $secureKey = Read-Host "请输入 LLM API Key（输入内容不会显示）" -AsSecureString
 $pointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureKey)
