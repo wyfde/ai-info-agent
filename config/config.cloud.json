@@ -1,0 +1,52 @@
+{
+  "timezone": "Asia/Shanghai",
+  "window_hours": 24,
+  "inbox_dir": ".cloud/inbox",
+  "raw_dir": ".cloud/raw",
+  "output_dir": "cloud_state",
+  "llm": {
+    "api_style": "chat_completions",
+    "base_url": "https://api.deepseek.com",
+    "model": "deepseek-chat",
+    "api_key": "",
+    "api_key_env": "AI_JOB_INTEL_LLM_API_KEY",
+    "max_tokens": 4096,
+    "timeout_seconds": 120
+  },
+  "wechat": {
+    "rss_feeds": []
+  },
+  "feishu": {
+    "delivery": "bitable",
+    "app_id_env": "FEISHU_APP_ID",
+    "app_id": "",
+    "app_secret_env": "FEISHU_APP_SECRET",
+    "app_secret": "",
+    "group_chats": [
+      {
+        "name": "🌈通往AGI之路🦌",
+        "chat_id": "oc_c2920a446a6fb8d2741fa056d8c54c2a"
+      }
+    ],
+    "webhook_url_env": "FEISHU_WEBHOOK_URL",
+    "webhook_url": "",
+    "receive_id_env": "FEISHU_RECEIVE_ID",
+    "receive_id": "oc_c2920a446a6fb8d2741fa056d8c54c2a",
+    "receive_id_type": "chat_id",
+    "bitable": {
+      "url": "https://my.feishu.cn/wiki/Orq2w5I9eiXdTMk5lFQcFmn4nVg?table=tblonv5sPujaglb1&view=vewmuvQyeE",
+      "app_token": "FMDkbGWQVaopDDsbs11cdk7onYe",
+      "table_id": "tblonv5sPujaglb1",
+      "date_field_type": "text",
+      "link_field_type": "url",
+      "fields": {
+        "date": "日期",
+        "category": "分类",
+        "title": "标题",
+        "link": "链接",
+        "summary": "摘要",
+        "implication": "求职启示"
+      }
+    }
+  }
+}
